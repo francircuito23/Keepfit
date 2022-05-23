@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>KeepFit - Home</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+      <style>
+        a[data-tooltip] {
+          position: relative;
+        }
+        a[data-tooltip]::before,
+        a[data-tooltip]::after {
+          position: absolute;
+          display: none;
+          opacity: 0.85;
+        }
+        a[data-tooltip]::before {
+          /*
+          * using data-tooltip instead of title so we 
+          * don't have the real tooltip overlapping
+          */
+          content: "En cambio con las otras dietas, las cuales sería más posible dividir mejor las comidas, cuando lo que queremos es aumentar masa muscular, sí es más recomendable multiplicar las comidas durante el día para así evitar comer más en las comidas como el desayuno, almuerzo o cena y tener un mejor equilibrio de alimentos ya que estamos buscando al menos ingerir 3000 calorías.";
+          background: #000;
+          color: #fff;
+          font-size: 13px;
+          padding: 5px;
+          border-radius: 5px;
+          /* we don't want the text to wrap */
+          text-decoration: none;
+          text-transform: none;
+          width: 2000%;
+        }
+        .toltip2 a[data-tooltip]::before{
+          /*
+          * using data-tooltip instead of title so we 
+          * don't have the real tooltip overlapping
+          */
+          content: "Es recomendable esperar un poco antes de lanzarte a comprar este tipo de suplementos alimenticios como la proteína en suero si no estás seguro todavía de que vayas a seguir la dieta y el entrenamiento al 100%, y cuando todo esté en orden y lleves un tiempo con tu dieta, entonces empezar a ingerir estos suplementos ya que se corre el riesgo de malgastar tu dinero. Pero si estás seguro desde un principio, te animo a empezar a tomarlas, te ayudarán muchísimo. Sin mencionar por supuesto que estos suplementos no deben ser el centro de tu dieta.";
+          background: #000;
+          color: #fff;
+          font-size: 13px;
+          padding: 5px;
+          border-radius: 5px;
+          /* we don't want the text to wrap */
+          text-decoration: none;
+          text-transform: none;
+          width: 2000%;
+        }
+        a[data-tooltip]::after {
+          width: 0;
+          height: 0;
+          border: 6px solid transparent;
+          content: '';
+        }
+
+        a[data-tooltip]:hover::before,
+        a[data-tooltip]:hover::after {
+          display: block;
+        }
+
+
+        /* bottom tooltip */
+        a[data-tooltip][data-placement="bottom"]::before {
+          top: 100%;
+          left: 0;
+          margin-top: 10px;
+        }
+        a[data-tooltip][data-placement="bottom"]::after {
+          border-bottom-color: #000;
+          border-top: none;
+          top: 100%;
+          left: 10px;
+          margin-top: 4px;
+        }
+      </style>
+  </head>
+
+  <body>
+      <!-- Tabla Masa Muscular -->
+      <div class="flex flex-col mt-10">
+          <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-0">
+            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+              <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg ">
+                <table class="min-w-full divide-y divide-gray-200">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider underline">
+                        Días
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Desayuno
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Media Mañana
+                        <a href="#" data-tooltip="bottom tooltip" data-placement="bottom"><ion-icon class="text-base hover:scale-125" name="help-circle-outline"></ion-icon></a>
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Almuerzo
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Merienda
+                      </th>
+                      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Cena
+                      </th>
+                      <th scope="col" class="relative px-6 py-3">
+                        <span class="sr-only">Edit</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                          <div class="text-sm font-medium text-gray-900 uppercase">
+                              Lunes
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="flex items-center">
+                              {{!-- <div class="text-sm text-gray-900">{{alimentos}}</div> --}}
+                              <div class="text-sm text-gray-900">Plátanos</div>
+                              <div class="flex-shrink-0 h-10 w-10">
+                                  <img class="h-10 w-10 rounded-full" src="https://static.libertyprim.com/files/familles/banane-large.jpg?1569271725" alt="platano">
+                              </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 1 unidad</div>
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Copos de Avena</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://noalles.es/wp-content/uploads/2020/05/Copos-de-Avena-Tradicional-min-scaled.jpg" alt="copos_avena">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 30-40 gramos</div>
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Yogur</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://us.123rf.com/450wm/tanyasid/tanyasid1905/tanyasid190500009/122181154-yogur-org%C3%A1nico-casero-natural-fresco-en-un-frasco-de-vidrio-aislado-sobre-fondo-blanco-.jpg?ver=6" alt="yogur">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 400 gramos</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="flex items-center">
+                              <div class="text-sm text-gray-900 mr-2">Enselada de pollo</div>
+                              <div class="flex-shrink-0 h-10 w-10">
+                                  <img class="h-10 w-10 rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw9SbLQ6MN08bf7ktljpsOIzyxge6jf_nQhnRFhbOroIbd_QCxT1-1vaUFTM3e3RkYSxI&usqp=CAU" alt="ensalada-pollo">
+                              </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 1 Plato</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="flex items-center">
+                              <div class="text-sm text-gray-900 mr-2">Pasta (cualquiera)</div>
+                              <div class="flex-shrink-0 h-10 w-10">
+                                  <img class="h-10 w-10 rounded-full" src="https://saborgourmet.com/wp-content/uploads/tiempo-cocer-macarrones_perfectos-iStock.jpg" alt="pasta">
+                              </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 1 Plato</div>
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Ternera</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://media.justo.mx/__sized__/products/2010153-thumbnail-540x540-70.jpg" alt="ternera">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 300 gramos</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Patatas</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://media.istockphoto.com/photos/three-potatoes-picture-id157430678?k=20&m=157430678&s=612x612&w=0&h=dfYLuPYwA50ojI90hZ4jCgKZd5TGnqf24UCVBszoZIA=" alt="patata">
+                            </div>
+                        </div>
+                        <div class="text-sm text-gray-500">Cantidad: 2 unidades</div>
+                        <div class="flex items-center">
+                          <div class="text-sm text-gray-900 mr-2">Atún natural</div>
+                          <div class="flex-shrink-0 h-10 w-10">
+                              <img class="h-10 w-10 rounded-full" src="https://bsg-i.nbxc.com/product/d8/98/40/62d123b348c80c24bb5c955591.jpg@4e_500w_500h.src%7C95Q.webp" alt="atun">
+                          </div>
+                        </div>
+                        <div class="text-sm text-gray-500">Cantidad: 1 lata</div>
+                        <div class="flex items-center">
+                          <div class="text-sm text-gray-900 mr-2">Tomate natural</div>
+                          <div class="flex-shrink-0 h-10 w-10">
+                              <img class="h-10 w-10 rounded-full" src="https://jumboargentina.vtexassets.com/arquivos/ids/178950-800-600?v=636383373470530000&width=800&height=600&aspect=true" alt="tomate">
+                          </div>
+                        </div>
+                        <div class="text-sm text-gray-500">Cantidad: 3 unidades</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Salmón plancha</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://cdnx.jumpseller.com/frostchile/image/507175/frostchile-salmon-salar.jpg?1625676860" alt="salmon">
+                            </div>
+                        </div>
+                        <div class="text-sm text-gray-500">Cantidad: 300 gramos</div>
+                        <div class="flex items-center">
+                          <div class="text-sm text-gray-900 mr-2">Verduras plancha</div>
+                          <div class="flex-shrink-0 h-10 w-10">
+                              <img class="h-10 w-10 rounded-full" src="http://2.bp.blogspot.com/-AOHYocLXCGs/UE3w5nhVKBI/AAAAAAAAAJ4/QtUZHhYt-pw/s1600/verduras_20080213psandi_1.jpg" alt="verduras">
+                          </div>
+                        </div>
+                        <div class="text-sm text-gray-500">Cantidad: 1 plato</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                      </td>
+                    </tr>
+        
+                    <!-- Martes -->
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                          <div class="text-sm font-medium text-gray-900 uppercase">
+                              Martes
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Copos de Avena</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://noalles.es/wp-content/uploads/2020/05/Copos-de-Avena-Tradicional-min-scaled.jpg" alt="copos_avena">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 150 gramos</div>
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Queso fresco</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://i0.wp.com/meatlovers.es/wp-content/uploads/queso-fresco-burgos_873091.jpg?fit=2000%2C1273&ssl=1" alt="queso-fresco">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 2 lonchas</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="flex items-center">
+                              <div class="text-sm text-gray-900 mr-2">Pan Integral</div>
+                              <div class="flex-shrink-0 h-10 w-10">
+                                  <img class="h-10 w-10 rounded-full" src="https://imagenes.elpais.com/resizer/E7siuis5n3XibC7uXE79xU7Eq54=/414x0/cloudfront-eu-central-1.images.arcpublishing.com/prisa/OFWP7NQN6TRH5ZN6UBVL2RN3LI.jpg" alt="pan-integral">
+                              </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 2 rebanadas</div>
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Queso semicurado</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://mencas.es/337-large_default/queso-mezcla.jpg" alt="queso-semicurado">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 2 lonchas</div>
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Pepino</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://www.laprensagrafica.com/__export/1508186157976/sites/prensagrafica/img/2017/10/16/pepinos_2.jpg_1902800913.jpg" alt="pepino">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 4 rodajas</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Salmón ahumado</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://galeriaseboli.es/6372-medium_default/salmon-ahumado-100-gr.jpg" alt="salmon-ahumado">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 2 lonchas</div>
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Arroz cocido</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://img.freepik.com/foto-gratis/arroz-bol-sobre-fondo-blanco_29402-573.jpg" alt="arroz-cocido">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 150 gramos</div>
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Espinacas cocidas</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://www.hogarmania.com/archivos/201306/5202-nutricion-ainhoa-espinacas-xl-668x400x80xX.jpg" alt="espinacas">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 150 gramos</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Tortitas de arroz</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://st2.depositphotos.com/1000504/6333/i/450/depositphotos_63339291-stock-photo-rice-crackers.jpg" alt="tortita-arroz">
+                            </div>
+                        </div>
+                        <div class="text-sm text-gray-500">Cantidad: 2 unidades</div>
+                        <div class="flex items-center">
+                          <div class="text-sm text-gray-900 mr-2">Ensalada de verduras</div>
+                          <div class="flex-shrink-0 h-10 w-10">
+                              <img class="h-10 w-10 rounded-full" src="https://4.bp.blogspot.com/-8EIbd9PGooI/VyPQirhS8EI/AAAAAAAAEps/UvlcSnJxCKMUJUQf46IiZR8AYRN9UcVRACLcB/s1600/ensalada2.jpg" alt="ensalada-verduras">
+                          </div>
+                        </div>
+                        <div class="text-sm text-gray-500">Cantidad: 1 bol</div>
+                        <div class="flex items-center">
+                          <div class="text-sm text-gray-900 mr-2">Barrita de proteínas</div>
+                          <div class="flex-shrink-0 h-10 w-10">
+                              <img class="h-10 w-10 rounded-full" src="https://noticiasya.com/wp-content/uploads/sites/3/2017/05/thinkstockphotos-167239532.jpg" alt="barrita">
+                          </div>
+                        </div>
+                        <div class="text-sm text-gray-500">Cantidad: 1 unidad</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Pollo</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://mercaldas.vtexassets.com/arquivos/ids/217786/Filete-de-pechuga-MAC-POLLO-peso-variable_56596.jpg?v=637582410911630000" alt="pollo">
+                            </div>
+                        </div>
+                        <div class="text-sm text-gray-500">Cantidad: 2 filetes</div>
+                        <div class="flex items-center">
+                          <div class="text-sm text-gray-900 mr-2">Boniatos</div>
+                          <div class="flex-shrink-0 h-10 w-10">
+                              <img class="h-10 w-10 rounded-full" src="https://estilorganico.com/777-large_default/batata-zanahoria-boniato-organica-x-kg.jpg" alt="boniato">
+                          </div>
+                        </div>
+                        <div class="text-sm text-gray-500">Cantidad: 3 rodajas</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                      </td>
+                    </tr>
+
+                    <!-- Miércoles -->
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                          <div class="text-sm font-medium text-gray-900 uppercase">
+                              Miércoles
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="flex items-center">
+                              <div class="text-sm text-gray-900 mr-2">Pan Integral</div>
+                              <div class="flex-shrink-0 h-10 w-10">
+                                  <img class="h-10 w-10 rounded-full" src="https://imagenes.elpais.com/resizer/E7siuis5n3XibC7uXE79xU7Eq54=/414x0/cloudfront-eu-central-1.images.arcpublishing.com/prisa/OFWP7NQN6TRH5ZN6UBVL2RN3LI.jpg" alt="pan-integral">
+                              </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 2 rebanadas</div>
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Aguacate</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://www.mercadoscampesinos.gov.co/wp-content/uploads/2021/05/Ahuacate_Hass.jpg" alt="aguacate">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 1 unidad</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="flex items-center">
+                              <div class="text-sm text-gray-900 mr-2">Pistachos</div>
+                              <div class="flex-shrink-0 h-10 w-10">
+                                  <img class="h-10 w-10 rounded-full" src="https://agromagazine.com/wp-content/uploads/2018/02/pistacho.jpg" alt="pistachos">
+                              </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 2 rebanadas</div>
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Fruta</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://libbys.es/wordpress/wp-content/uploads/2014/12/multifrutas.jpg" alt="fruta">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 1 unidad</div>
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Quinoa cocida</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://img.freepik.com/foto-gratis/quinoa-real_1368-9186.jpg?w=2000" alt="quinoa">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 70 gramos</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Cerdo</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://progcarne.com/storage/app/uploads/public/603/ebd/dac/603ebddac3c1a274493475.jpg" alt="cerdo">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 2 filetes</div>
+                          <div class="flex items-center">
+                              <div class="text-sm text-gray-900 mr-2">Patatas</div>
+                              <div class="flex-shrink-0 h-10 w-10">
+                                  <img class="h-10 w-10 rounded-full" src="https://media.istockphoto.com/photos/three-potatoes-picture-id157430678?k=20&m=157430678&s=612x612&w=0&h=dfYLuPYwA50ojI90hZ4jCgKZd5TGnqf24UCVBszoZIA=" alt="patata">
+                              </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 2 unidades</div>
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Enselada César</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://i1.wp.com/recetasdepollo.info/wp-content/uploads/2016/01/ensalada-cesar-con-pollo-asado-3.jpg?fit=700%2C400&ssl=1" alt="ensalada-cesar">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 1 bol</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Batido de proteínas</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://m.media-amazon.com/images/I/31cZwMYeLLS._SL500_.jpg" alt="batido-proteinas">
+                            </div>
+                        </div>
+                        <div class="text-sm text-gray-500">Ingredientes:</div>
+                        <div class="text-sm text-gray-500 mt-2">- Leche (cualquier tipo)</div>
+                        <div class="text-sm text-gray-500">- Plátano</div>
+                        <div class="text-sm text-gray-500">- Copos de avena (100 gramos)</div>
+                        <div class="text-sm text-gray-500">- Nueces (5-10 unidades)</div>
+                        <div class="text-sm text-gray-500">- Crema de cacahuete (1 cucharada)</div>
+                        <div class="text-sm text-gray-500">- Crema de avellana con chocolate (1 cucharada)</div>
+                        <div class="text-sm text-gray-500">- Canela</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Merluza al horno</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://www.mariscosapolo.com/wp-content/uploads/2016/01/rodajas-de-merluza-congelados-apolo.jpg" alt="merluza">
+                            </div>
+                        </div>
+                        <div class="text-sm text-gray-500">Cantidad: 2 filetes</div>
+                        <div class="flex items-center">
+                          <div class="text-sm text-gray-900 mr-2">Verduras plancha</div>
+                          <div class="flex-shrink-0 h-10 w-10">
+                              <img class="h-10 w-10 rounded-full" src="http://2.bp.blogspot.com/-AOHYocLXCGs/UE3w5nhVKBI/AAAAAAAAAJ4/QtUZHhYt-pw/s1600/verduras_20080213psandi_1.jpg" alt="verduras">
+                          </div>
+                        </div>
+                        <div class="text-sm text-gray-500">Cantidad: 1 plato</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                      </td>
+                    </tr>
+
+                    <!-- Jueves -->
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                          <div class="text-sm font-medium text-gray-900 uppercase">
+                              Jueves
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="flex items-center">
+                              <div class="text-sm text-gray-900 mr-2">Jamón serrano</div>
+                              <div class="flex-shrink-0 h-10 w-10">
+                                  <img class="h-10 w-10 rounded-full" src="https://i0.wp.com/meatlovers.es/wp-content/uploads/jamon-serrano-lonchas_875011.jpg?fit=2000%2C1357&ssl=1" alt="jamon-serrano">
+                              </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 2 lonchas</div>
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Huevos fritos</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://avicultura.com/wp-content/uploads/2015/10/huevos-12-razones-para-comer-huevos-1.jpg" alt="huevos">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 2 unidades</div>
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Aceite de oliva</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://www.cocinista.es/download/bancorecursos/ingredientes/ingrediente-aceite-oliva-2.jpg" alt="aceite-oliva">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 1 cucharada</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="flex items-center">
+                              <div class="text-sm text-gray-900 mr-2">Naranjas</div>
+                              <div class="flex-shrink-0 h-10 w-10">
+                                  <img class="h-10 w-10 rounded-full" src="https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/201811/26/00118105700068____2__600x600.jpg" alt="naranjas">
+                              </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 1 unidad</div>
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Almendras</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://rincsaluphotos.s3.us-east-2.amazonaws.com/2021/09/almendras-tostadas.jpg" alt="almendras">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 12 unidades</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Lentejas</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://celiacos.org/wp-content/uploads/2020/10/lentils-1024x1024.jpg" alt="lentejas">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 1 plato</div>
+                          <div class="flex items-center">
+                              <div class="text-sm text-gray-900 mr-2">Pechuga de pavo</div>
+                              <div class="flex-shrink-0 h-10 w-10">
+                                  <img class="h-10 w-10 rounded-full" src="https://media.istockphoto.com/photos/raw-turkey-breast-picture-id178189256?k=20&m=178189256&s=612x612&w=0&h=4eVu-25R0v7dnT5tLPajfHo9bj0_yHDw5vsQOc6eUnA=" alt="pavo-pechuga">
+                              </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 2 filetes</div>
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Verduras plancha</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="http://2.bp.blogspot.com/-AOHYocLXCGs/UE3w5nhVKBI/AAAAAAAAAJ4/QtUZHhYt-pw/s1600/verduras_20080213psandi_1.jpg" alt="verduras">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 1 plato</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Batido de proteínas</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://m.media-amazon.com/images/I/31cZwMYeLLS._SL500_.jpg" alt="batido-proteinas">
+                            </div>
+                        </div>
+                        <div class="text-sm text-gray-500">Ingredientes:</div>
+                        <div class="text-sm text-gray-500 mt-2">- Leche (cualquier tipo)</div>
+                        <div class="toltip2 text-sm text-gray-500">- 30 gramos de proteína de suero (1 cucharada colmada) <a href="#" class="whitespace-normal" data-tooltip="bottom tooltip" data-placement="bottom"><ion-icon class="text-base hover:scale-125" name="help-circle-outline"></ion-icon></a></div>
+                        <div class="text-sm text-gray-500">- Plátano</div>
+                        <div class="text-sm text-gray-500">- Fresas (2-5 unidades)</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Pasta (cualquiera)</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://saborgourmet.com/wp-content/uploads/tiempo-cocer-macarrones_perfectos-iStock.jpg" alt="pasta">
+                            </div>
+                        </div>
+                        <div class="text-sm text-gray-500">Ingredientes:</div>
+                        <div class="text-sm text-gray-500 mt-2">- Carne de ternera picada</div>
+                        <div class="text-sm text-gray-500">- Salsa de tomate natural</div>
+                        <div class="text-sm text-gray-500">- Queso (cualquiera) molido</div>
+                        <div class="text-sm text-gray-500 mt-2">Cantidad: 1 plato</div>
+                        <div class="flex items-center">
+                          <div class="text-sm text-gray-900 mr-2">Ensalada mediterránea</div>
+                          <div class="flex-shrink-0 h-10 w-10">
+                              <img class="h-10 w-10 rounded-full" src="https://us.123rf.com/450wm/gbh007/gbh0071408/gbh007140800262/30406989-at%C3%BAn-y-ensalada-de-verduras-en-el-fondo-blanco.jpg" alt="verduras">
+                          </div>
+                        </div>
+                        <div class="text-sm text-gray-500">Cantidad: 1 plato</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                      </td>
+                    </tr>
+
+                      <!-- Viernes -->
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                          <div class="text-sm font-medium text-gray-900 uppercase">
+                              Viernes
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="flex items-center">
+                              <div class="text-sm text-gray-900 mr-2">Porridge</div>
+                              <div class="flex-shrink-0 h-10 w-10">
+                                  <img class="h-10 w-10 rounded-full" src="https://beplus.com/wp-content/uploads/2019/10/imagen19d.jpg" alt="porridge">
+                              </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Ingredientes:</div>
+                          <div class="text-sm text-gray-500 mt-2">- Leche (cualquier tipo)</div>
+                          <div class="text-sm text-gray-500">- Copos de avena</div>
+                          <div class="text-sm text-gray-500">- 2 kiwis</div>
+                          <div class="text-sm text-gray-500 mt-2">Cantidad: 1 bol</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="flex items-center">
+                              <div class="text-sm text-gray-900">Plátanos</div>
+                              <div class="flex-shrink-0 h-10 w-10">
+                                  <img class="h-10 w-10 rounded-full" src="https://static.libertyprim.com/files/familles/banane-large.jpg?1569271725" alt="platano">
+                              </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 1 unidad</div>
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Yogur</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://us.123rf.com/450wm/tanyasid/tanyasid1905/tanyasid190500009/122181154-yogur-org%C3%A1nico-casero-natural-fresco-en-un-frasco-de-vidrio-aislado-sobre-fondo-blanco-.jpg?ver=6" alt="yogur">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 400 gramos</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="flex items-center">
+                              <div class="text-sm text-gray-900 mr-2">Hamburguesa de Buey</div>
+                              <div class="flex-shrink-0 h-10 w-10">
+                                  <img class="h-10 w-10 rounded-full" src="https://i.pinimg.com/474x/0c/c2/4d/0cc24d66011af134dcc7039a74b76153.jpg" alt="hamburguesa-de-buey">
+                              </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Ingredientes:</div>
+                          <div class="text-sm text-gray-500 mt-2">- 1 hamburguesa de buey</div>
+                          <div class="text-sm text-gray-500">- Queso (cualquiera)</div>
+                          <div class="text-sm text-gray-500">- Lechuga</div>
+                          <div class="text-sm text-gray-500">- Tomate natural (4 rodajas)</div>
+                          <div class="text-sm text-gray-500 mt-2">Cantidad: 1 unidad</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Fruta</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://libbys.es/wordpress/wp-content/uploads/2014/12/multifrutas.jpg" alt="fruta">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 1 unidad</div>
+                          <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Frutos secos</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://cdnx.jumpseller.com/mercado-canela/image/19836433/Mix_Frutos_Secos_-_Nativo.webp?1648000550" alt="frutos-secos">
+                            </div>
+                          </div>
+                          <div class="text-sm text-gray-500">Cantidad: 10 unidades</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Merluza al horno</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://www.mariscosapolo.com/wp-content/uploads/2016/01/rodajas-de-merluza-congelados-apolo.jpg" alt="merluza">
+                            </div>
+                        </div>
+                        <div class="text-sm text-gray-500">Cantidad: 2 filetes</div>
+                        <div class="flex items-center">
+                            <div class="text-sm text-gray-900 mr-2">Pollo</div>
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <img class="h-10 w-10 rounded-full" src="https://mercaldas.vtexassets.com/arquivos/ids/217786/Filete-de-pechuga-MAC-POLLO-peso-variable_56596.jpg?v=637582410911630000" alt="pollo">
+                            </div>
+                        </div>
+                        <div class="text-sm text-gray-500">Cantidad: 2 filetes</div>
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      
+
+      <div class="text-sm text-gray-900">{{alimentos}}</div>
+  </body>
+
+</html>

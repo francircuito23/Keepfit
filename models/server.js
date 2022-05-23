@@ -10,7 +10,6 @@ const cors = require('cors');
 //Requiero mi paquete hbs para realizar mis parciales
 const hbs = require('hbs');
 
-
 const path = require('path');
 
 //Requiero la conexión a la base de datos
@@ -41,6 +40,7 @@ class Server {
         this.authPath = '/auth';
 
         //Requerimos el paquete para usar los handlebars para express(hbs) - Puedo establecer las rutas de mis páginas
+        this.app.set('views','views');
         this.app.set('view engine', 'hbs');
 
         //Solo para visualizar la ruta absoluta de mis partials
@@ -107,7 +107,7 @@ class Server {
         });
 
         this.app.get('/masaMuscular', (req, res) => {
-            res.render('masaMuscular');
+            res.render('./getAlimento');
         });
 
         //---------Rutas de las secciones de las dietas de food & nutrition - Vegan diets
